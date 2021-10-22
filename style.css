@@ -1,0 +1,204 @@
+
+*{
+    box-sizing: border-box;
+    
+
+}
+
+#wrapper{
+
+    overflow-x: hidden;
+
+}
+
+body{
+
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+    font-family: Ubuntu;
+    overflow-y: scroll; /* Show vertical scrollbar */
+    /*background-color: rgb(255, 180, 100);*/
+}
+
+.bkg-orange{
+
+
+    background-color: rgb(255, 180, 100);
+
+}
+
+.bkg-dark{
+
+
+    background-color: rgb(40, 40, 40);
+
+}
+
+#page00, #page01, #page02, #page03, mainContent{
+
+    background-color: rgb(255, 255, 255);
+color: rgb(255, 180, 100);
+}
+
+/*
+let color = {
+    orange: "rgb(255, 180, 100)",
+    white: "rgb(255, 255, 255)",
+    black: "rgb(0, 0, 0)",
+    dark: "rgb(40, 40, 40)"
+};
+*/
+
+
+
+/* ANIMATION */
+@keyframes InLeft {
+    0%   {left:125%;}
+    100% {left:0;}
+}
+
+.animIn {
+    animation-name: InLeft;
+    animation-duration: 0.3s;
+    animation-timing-function: ease;
+}
+
+
+@keyframes OutR {
+    0%   {left:0;}
+    100% {left:-125%;}
+}
+
+.animOut {
+    animation-name: OutR;
+    animation-duration: 0.3s;
+    animation-timing-function: ease;
+}
+
+
+
+
+/* NAVIGATION */
+.navbar-toggler {
+    padding: 0.25rem 0.75rem;
+    font-size: 1.25rem;
+    line-height: 1;
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    transition: box-shadow 0.15s ease-in-out;
+    
+  }
+  
+.navbar-dark .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    
+  }
+  .navbar-dark .navbar-text {
+    color: rgba(255, 255, 255, 0.8);
+  }
+  .navbar-dark .navbar-text a,
+  .navbar-dark .navbar-text a:hover,
+  .navbar-dark .navbar-text a:focus {
+    color: #fff;
+  }
+
+
+  .navbar-brand{
+    border-radius: 100%;
+    background-color: rgb(255, 180, 100);
+
+    background-size: 50px 50px;
+    background-repeat: no-repeat;
+
+    width: 50px;
+    height: 50px;
+    
+  }
+
+
+.active{
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+
+
+
+#toTop{
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed/sticky position */
+    bottom: 20px; /* Place the button at the bottom of the page */
+    right: 20px; /* Place the button 30px from the right */
+    z-index: 1199; /* Make sure it does not overlap */
+    border: none; /* Remove borders */
+    outline: none; /* Remove outline */
+    background-color: rgb(255, 180, 100); /* Set a background color */
+    color: white; /* Text color */
+    cursor: pointer; /* Add a mouse pointer on hover */
+    padding: 20px; /* Some padding */
+    border-radius: 100%; /* Rounded corners */
+    font-size: 1rem; /* Increase font size */
+
+}
+
+
+
+/* MODAL */
+
+#x{
+    font-size: 2rem;
+
+
+}
+
+
+
+#info{
+    /*
+    position: absolute;
+    right: 0;
+    background-color: rgba(200, 200, 200, 0.2);
+    z-index: 500;
+    min-width: 5vw;
+    min-height: 10vw;
+    border: 1px solid red;
+*/
+
+}
+
+#pop{
+    position: absolute;
+    margin-left: 5%;
+    margin-right:  5%;
+    top: 25%;
+    width: ;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+    z-index: 500;
+
+
+
+}
+
+
+#bkg{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+    z-index: 450;
+
+    background-color: rgba(100, 100, 100, 0.5);
+
+
+
+}
