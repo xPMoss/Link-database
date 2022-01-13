@@ -130,9 +130,44 @@ class Tag{
 
 }
 
+async function imageExists(image_url){
+
+    var http = new XMLHttpRequest();
+
+    http.open('HEAD', image_url, false);
+    http.send();
+
+    console.log("state: " + http.status);
+
+
+}
+
+function getThumbnail(image_url)
+{
+    var image = new Image();
+    image.src = image_url;
+
+    image.onload = function()
+    {
+        return image;
+    }
+    image.onerror = function()
+    {
+        return "images/default.jpg";
+    }
+}
 
 class Link{
     constructor(content) {
+
+        let image_url = content.link + "/favicon.ico";
+
+        let state = getThumbnail(image_url);
+
+        //console.log("image msg: " + image_url.imageExists);
+
+
+
         let container = document.createElement("div");
         container.id = content.title;
 
@@ -154,7 +189,24 @@ class Link{
         title.classList.add('px-3');
         title.classList.add('p-sm-4');
         title.classList.add('px-sm-4');
-        title.innerHTML = content.title;
+
+
+
+        title.innerHTML = content.title ;
+        //+ "<img class='float-right' width='20px' src='" + content.link + "/favicon.ico'>"
+        let thumb = document.createElement("img");
+        thumb.classList.add('float-right');
+        thumb.src = content.link + "/favicon.ico";
+        thumb.style.width = "20px";
+
+        console.log("image msg: " + thumb.height + ", " + content.title);
+
+        if (thumb.height > 0) {
+            title.appendChild(thumb);
+            
+        }
+        
+
         title.innerHTML += "<br/><small>" + content.link + "</small>";
 
         // TAGS //

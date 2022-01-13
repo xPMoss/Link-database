@@ -33,7 +33,7 @@ let Links =
     },
 	{ 
         title: "Motionographer",
-        link: "https://motionographer.com/",
+        link: "https://motionographer.com",
 		info: "NULL",
 		status: "online",
 		thumbnail: "NULL",
@@ -73,7 +73,7 @@ let Links =
     },
 	{ 
         title: "HBO",
-        link: "https://se.hbonordic.com",
+        link: "https://www.hbomax.com",
 		info: "NULL",
 		status: "online",
 		thumbnail: "NULL",
@@ -83,7 +83,7 @@ let Links =
     },
 	{ 
         title: "C MORE",
-        link: "https://www.cmore.se/",
+        link: "https://www.cmore.se",
 		info: "NULL",
 		status: "online",
 		thumbnail: "NULL",
@@ -122,6 +122,16 @@ let Links =
 
     },
 	{ 
+        title: "Github",
+        link: "https://github.com",
+		info: "NULL",
+		status: "online",
+		thumbnail: "NULL",
+		image: "NULL",
+		tags: ["Coding"]
+
+    },
+	{ 
         title: "Internet Movie Database",
         link: "https://www.imdb.com",
 		info: "NULL",
@@ -149,6 +159,56 @@ let Links =
 		thumbnail: "NULL",
 		image: "NULL",
 		tags: ["Videos"]
+
+    },
+	{ 
+        title: "Aescripts",
+        link: "https://aescripts.com",
+		info: "NULL",
+		status: "online",
+		thumbnail: "NULL",
+		image: "NULL",
+		tags: ["2D", "Animation", "Graphics"]
+
+    },
+	{ 
+        title: "Battleaxe",
+        link: "https://www.battleaxe.co",
+		info: "NULL",
+		status: "online",
+		thumbnail: "NULL",
+		image: "NULL",
+		tags: ["2D", "Animation", "Graphics"]
+
+    },
+	{ 
+        title: "Good Boy Ninja",
+        link: "https://www.goodboy.ninja",
+		info: "NULL",
+		status: "online",
+		thumbnail: "NULL",
+		image: "NULL",
+		tags: ["2D", "Animation", "Graphics"]
+
+    },
+	{ 
+        title: "Polyhaven",
+        link: "https://polyhaven.com",
+		info: "NULL",
+		status: "online",
+		thumbnail: "NULL",
+		image: "NULL",
+		tags: ["3D"]
+
+    },
+	{ 
+        title: "Turbosquid",
+        link: "https://www.turbosquid.com",
+		info: "NULL",
+		status: "online",
+		thumbnail: "NULL",
+		image: "NULL",
+		tags: ["3D"]
 
     }
 
