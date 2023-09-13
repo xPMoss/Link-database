@@ -210,6 +210,17 @@ let Links =
 		image: "NULL",
 		tags: ["3D"]
 
+    },
+	{ 
+        title: "Disney+",
+        link: "https://www.disneyplus.com",
+		info: "NULL",
+		status: "online",
+		thumbnail: "NULL",
+		image: "NULL",
+		tags: ["Movies", "Series", "Streaming"]
+
+
     }
 
 ];
