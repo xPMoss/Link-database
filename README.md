@@ -1,2 +1,2 @@
 # Link database
-https://xpmoss.github.io/ld/
+https://xpmoss.github.io/link-database/
