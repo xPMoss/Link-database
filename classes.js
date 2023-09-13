@@ -81,12 +81,9 @@ class Tag{
         title.classList.add('border');
         title.classList.add('p-2');
         title.innerHTML = content;
-        
-        
 
         container.style.cursor = "pointer";
 
-        
         container.onmouseover  = function(e) { 
 
             if (active) {
@@ -97,9 +94,8 @@ class Tag{
                 title.classList.add('border-success');
                 
             }
-            
-    
-            };
+
+        };
 
         container.onmouseleave  = function(e) { 
             if (active) {
@@ -111,18 +107,17 @@ class Tag{
                 
             }
 
-    
-            };
+        };
         
 
         container.onclick = function(e) { 
             updateContent(content);
-            
 
-    
         };
         
         container.appendChild(title);
+
+        
 
         return container;
 
@@ -130,17 +125,24 @@ class Tag{
 
 }
 
-async function imageExists(image_url){
+function imageExists(image_url){
 
     var http = new XMLHttpRequest();
 
-    http.open('HEAD', image_url, false);
+    http.open('GET', image_url, false);
     http.send();
-
     console.log("state: " + http.status);
 
+    if (http.status != 404){
+        return true;
+    }  
+    else{
+        return false;
+    }
+        
 
 }
+
 
 function getThumbnail(image_url)
 {
@@ -159,15 +161,6 @@ function getThumbnail(image_url)
 
 class Link{
     constructor(content) {
-
-        let image_url = content.link + "/favicon.ico";
-
-        let state = getThumbnail(image_url);
-
-        //console.log("image msg: " + image_url.imageExists);
-
-
-
         let container = document.createElement("div");
         container.id = content.title;
 
@@ -179,9 +172,9 @@ class Link{
         container.classList.add('pr-4');
         container.classList.add('pb-4');
         container.classList.add('p-0');
-        container.classList.add('m-0');
-        
-        
+        container.classList.add('m-0'); 
+
+        //
         let title = document.createElement("div");
         title.classList.add('bg-light');
         title.classList.add('border');
@@ -190,16 +183,19 @@ class Link{
         title.classList.add('p-sm-4');
         title.classList.add('px-sm-4');
 
-
-
         title.innerHTML = content.title ;
         //+ "<img class='float-right' width='20px' src='" + content.link + "/favicon.ico'>"
+
+        //
         let thumb = document.createElement("img");
         thumb.classList.add('float-right');
-        thumb.src = content.link + "/favicon.ico";
+        
+        let favicon = "https://s2.googleusercontent.com/s2/favicons?domain=" + content.link;
+
+        thumb.src = favicon;
         thumb.style.width = "20px";
 
-        console.log("image msg: " + thumb.height + ", " + content.title);
+        //console.log("image msg: " + thumb.height + ", " + content.title);
 
         if (thumb.height > 0) {
             title.appendChild(thumb);
@@ -213,8 +209,54 @@ class Link{
         title.innerHTML += "<br/>";
 
         for (let i = 0; i < content.tags.length; i++) {
-            title.innerHTML += "<small>" + content.tags[i] + " </small>";
-            
+            let c = document.createElement("div");
+            c.classList.add("d-inline-flex")
+            c.classList.add("px-1")
+            c.classList.add("mr-2")
+            c.classList.add("border")
+            c.classList.add("border-secondary")
+
+            let active = false;
+
+            if (activeFilters.includes(content.tags[i])) {
+                active = true;
+
+            }
+
+            if (active) {
+                c.classList.add('bg-dark');
+                c.classList.add('text-light');
+            }
+            else{
+                c.classList.add('bg-light');
+                c.classList.add('text-dark');
+                
+            }
+
+            c.innerHTML += "<small>" + content.tags[i] + "</small>";
+
+            c.onmouseover = function(e) { 
+                c.classList.remove('border-secondary');
+                c.classList.add('border-success');
+                
+    
+            };
+    
+            c.onmouseleave = function(e) { 
+                c.classList.remove('border-success');
+                c.classList.add('border-secondary');
+
+            };
+
+            c.addEventListener("click", (e)=>{ 
+                updateContent(content.tags[i]);
+    // A cross browser compatible way to stop propagation of the event:
+    if (!e) var e = window.event;
+    e.cancelBubble = true;
+    if (e.stopPropagation) e.stopPropagation();
+            });
+
+            title.appendChild(c);
         }
 
         container.style.cursor = "pointer";
@@ -232,14 +274,15 @@ class Link{
         };
         
 
-        container.onclick = function(e) { 
+
+        container.addEventListener("click", (e)=>{ 
             //window.open(content.link);
             //mainDiv.appendChild(new Iframe(content))
             popupDiv.innerHTML = "";
             popupDiv.appendChild(new PopUp(content))
 
-    
-        };
+
+        });
         
         container.appendChild(title);
 

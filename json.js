@@ -221,6 +221,28 @@ let Links =
 		tags: ["Movies", "Series", "Streaming"]
 
 
+    },
+	{ 
+        title: "Svelte",
+        link: "https://svelte.dev",
+		info: "NULL",
+		status: "online",
+		thumbnail: "NULL",
+		image: "NULL",
+		tags: ["Coding", "JavaScript", "TypeScript", "Framework"]
+
+
+    },
+	{ 
+        title: "Angular",
+        link: "https://angular.io/",
+		info: "NULL",
+		status: "online",
+		thumbnail: "NULL",
+		image: "NULL",
+		tags: ["Coding", "JavaScript", "TypeScript", "Framework"]
+
+
     }
 
 ];
