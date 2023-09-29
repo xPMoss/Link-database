@@ -5,13 +5,16 @@ let tagsDiv;
 let tags;
 
 let infoDiv;
-
 let activeFilters = new Array();
 
+let optionsDiv;
 
 let popup;
 
 async function clearContent() {
+    optionsDiv = document.getElementById("options");
+    optionsDiv.innerHTML = "";
+
     mainDiv = document.getElementById("main");
     mainDiv.innerHTML = ""; // Töm container
     objects = new Array();
@@ -28,6 +31,7 @@ async function clearContent() {
 
 }
 
+//
 async function loadTags() {
     //let obj = JSON.parse(Links);
     //console.log(Links.length)
@@ -76,7 +80,7 @@ async function creatTags() {
 
 }
 
-
+//
 async function loadContent() {
     
     for (let i = 0; i < Links.length; i++) {
@@ -91,10 +95,7 @@ async function loadContent() {
 
 }
 
-
-
 async function createContent() {
-    
     for (let i = 0; i < objects.length; i++) {
         let obj = objects[i];
 
@@ -110,7 +111,7 @@ async function createContent() {
 
         if (load) {
             let obj = objects[i];
-            main.appendChild(new Link(obj, 6)); 
+            mainDiv.appendChild(new Link(obj, 6)); 
         }
 
     }
@@ -119,13 +120,13 @@ async function createContent() {
         for (let i = 0; i < objects.length; i++) {
             let obj = objects[i];
     
-            main.appendChild(new Link(obj)); 
+            mainDiv.appendChild(new Link(obj)); 
     
         }
     
     }
 
-    main.appendChild(new AddLink()); 
+    mainDiv.appendChild(new AddLink()); 
 
 
 }
@@ -133,29 +134,26 @@ async function createContent() {
 async function setFilters(filter) {
     //activeFilters = [...new Set(activeFilters)];
 
+    // If activeFilters has filter => remove filter
     if (activeFilters.includes(filter)) {
         for (let i = 0; i < activeFilters.length; i++) {
             if (activeFilters[i] == filter) {
                 activeFilters.splice(i, 1); 
     
             }
-
-            
         }
-
-
     }
     else{
         activeFilters.push(filter);
     }
 
-    
-
+    // Set all filters
     if (filter == "ALL") {
         activeFilters = tags;
         
     }
 
+    // Set no filters
     if (filter == "NONE") {
         activeFilters = new Array();
         
@@ -173,8 +171,6 @@ async function setFilters(filter) {
     }
     */
 
-
-
     /*
     for (let i = 0; i < activeFilters.length; i++) {
         if (activeFilters[i] == filter) {
@@ -191,8 +187,15 @@ async function setFilters(filter) {
 
 }
 
+async function createOptions() {
+    
+    optionsDiv.appendChild(new Option())
+}
+
 async function updateContent(filter) {
     await clearContent();
+
+    await createOptions();
 
     await loadTags();
 
